@@ -1,5 +1,5 @@
 
-````markdown
+
 # Air Quality Prediction API
 
 **FastAPI · Docker · Prophet**
@@ -89,5 +89,4 @@ Example JSON:
 * Docker
 
 
-```
 
