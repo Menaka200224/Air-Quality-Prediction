@@ -1,106 +1,93 @@
 
-```markdown
+````markdown
 # Air Quality Prediction API
 
-This project provides an **Air Quality Prediction API** using **FastAPI** and a pre-trained model with **Prophet**. The project is containerized with **Docker** for easy deployment.
+**FastAPI · Docker · Prophet**
+
+Predict air quality index (AQI) using a pre-trained Prophet model. This REST API is containerized with Docker and ready for deployment on Railway or any cloud platform.
 
 ---
 
 ## Features
 
-- Predict air quality index (AQI) based on input features
-- RESTful API endpoints using FastAPI
-- Pre-trained model saved as `prophet_model.joblib`
-- Dockerized for easy deployment
+- Predict AQI based on historical data  
+- REST API built with **FastAPI**  
+- Pre-trained **Prophet** model  
+- Dockerized for reproducible deployment  
 
 ---
 
-## Project Structure
+## Quick Start
 
-```
-
-Air-Quality-Prediction/
-│
-├─ app.py                  
-├─ Dockerfile             
-├─ requirements.txt        
-├─ prophet_model.joblib     
-└─ README.md               
-
-````
-
----
-
-## Setup and Installation
-
-### 1. Clone Repository
+### Clone the repository
 
 ```bash
-git clone https://github.com/your-username/Air-Quality-Prediction.git
-cd Air-Quality-Prediction
+git clone https://github.com/YOUR_USERNAME/AirQuality.git
+cd AirQuality
 ````
 
-### 2. Create Virtual Environment
+### Install dependencies
 
 ```bash
 python -m venv venv
-source venv/bin/activate   # Linux/macOS
-venv\Scripts\activate      # Windows
-```
-
-### 3. Install Dependencies
-
-```bash
+source venv/bin/activate   # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
----
-
-## Run API Locally
+### Run the API
 
 ```bash
-uvicorn app:app --reload
+python app.py
 ```
 
-Open browser: `http://127.0.0.1:8000/docs` to see **Swagger UI** and test endpoints.
+### Open documentation in your browser
 
----
-
-## Docker Deployment
-
-### 1. Build Docker Image
-
-```bash
-docker build -t air-quality-api .
+```
+http://127.0.0.1:8000/docs
 ```
 
-### 2. Run Docker Container
+> Ensure `app.py` reads the port from the environment:
 
-```bash
-docker run -d -p 8000:8000 air-quality-api
+```python
+import os
+port = int(os.environ.get("PORT", 8000))
+app.run(host="0.0.0.0", port=port)
 ```
-
-API will be available at `http://localhost:8000`.
 
 ---
 
-## Git Synchronization Notes
+## Test Endpoints
 
-If you encounter Git issues:
+### Home
 
-```bash
-git pull origin main --allow-unrelated-histories
-git push -u origin main
+```
+GET https://YOUR_DOMAIN/
 ```
 
-Ensure your local repository is in sync with GitHub.
+### Predict
+
+```
+POST https://YOUR_DOMAIN/predict
+```
+
+Example JSON:
+
+```json
+[
+  {"ds": "2025-01-01"},
+  {"ds": "2025-01-02"}
+]
+```
 
 ---
 
-## Author
+## Tech Stack
 
-**Menaka Karunathilaka**
+* Python 3.10+
+* FastAPI
+* Prophet
+* Docker
 
-```
+
 ```
 
