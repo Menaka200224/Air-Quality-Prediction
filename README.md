@@ -6,7 +6,7 @@
 
 Predict air quality index (AQI) using a pre-trained Prophet model. This REST API is containerized with Docker and ready for deployment on Railway or any cloud platform.
 
----
+
 
 ## Features
 
@@ -15,14 +15,14 @@ Predict air quality index (AQI) using a pre-trained Prophet model. This REST API
 - Pre-trained **Prophet** model  
 - Dockerized for reproducible deployment  
 
----
+
 
 ## Quick Start
 
 ### Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/AirQuality.git
+git clone https://github.com/YOUR_USERNAME/Air-Quality-Prediction.git
 cd AirQuality
 ````
 
